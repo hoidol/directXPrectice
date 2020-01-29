@@ -32,7 +32,7 @@ public:
 
 
 private:
-	bool Render(float);
+	bool Render();
 
 private:
 	LightShaderClass* m_LightShader = nullptr;

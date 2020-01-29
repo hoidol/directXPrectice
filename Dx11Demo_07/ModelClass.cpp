@@ -122,7 +122,8 @@ void ModelClass::Draw(const XMMATRIX & viewProjectionMatrix)
 	this->cb_vs_vertexshader->ApplyChanges();
 	this->deviceContext->VSSetConstantBuffers(0, 1, this->cb_vs_vertexshader->GetAddressOf());
 
-	this->deviceContext->PSSetShaderResources(0, 1, &this->texture); //Set Texture
+	this->texture = m_Texture->GetTexture();
+	this->deviceContext->PSSetShaderResources(0, 1,  &this->texture); //Set Texture
 	this->deviceContext->IASetIndexBuffer(this->m_IndexBuffer.Get(), DXGI_FORMAT::DXGI_FORMAT_R32_UINT, 0);
 	UINT offset = 0;
 	this->deviceContext->IASetVertexBuffers(0, 1, this->m_VertexBuffer.GetAddressOf(), this->m_VertexBuffer.StridePtr(), &offset);

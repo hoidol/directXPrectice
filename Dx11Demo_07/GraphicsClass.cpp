@@ -151,14 +151,14 @@ bool GraphicsClass::Frame()
 	}
 	
 	// 그래픽 랜더링 처리
-	return Render(rotation);
+	return Render();
 }
 
 
-bool GraphicsClass::Render(float rotation)
+bool GraphicsClass::Render()
 {
 	// 씬을 그리기 위해 버퍼를 지웁니다
-	m_Direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+	m_Direct3D->BeginScene(1.0f, 1.0f, 1.0f, 1.0f);
 
 	// 카메라의 위치에 따라 뷰 행렬을 생성합니다
 	m_Camera->Render();
